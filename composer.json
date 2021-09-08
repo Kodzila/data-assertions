@@ -1,0 +1,54 @@
+{
+    "name": "kodzila/data-assertions",
+    "type": "library",
+    "description": "Library for assertions utils of entities returned from E2E tests.",
+    "authors": [
+        {
+            "name": "Pawel Kozik",
+            "email": "pawel.artur.kozik@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4 | ^8.0",
+        "webmozart/assert": "^1.7"
+    },
+    "require-dev": {
+        "kodzila/sniffer": "^1.0",
+        "phpunit/phpunit": "^9.5",
+        "vimeo/psalm": "^4.10"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Kodzila\\DataAssertions\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kodzila\\DataAssertions\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint": [
+            "vendor/bin/phpcs",
+            "vendor/bin/psalm --show-info=false"
+        ],
+        "test:unit": [
+            "vendor/bin/phpunit tests/"
+        ],
+        "mr": [
+            "composer validate",
+            "composer install",
+            "composer lint",
+            "composer test:unit"
+        ]
+    }
+}
